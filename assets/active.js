@@ -1,9 +1,8 @@
-const navItems = document.querySelectorAll('#nav-bar li a');
+const navItems = document.querySelectorAll('.nav-bar li a');
 // Add an event listener to each 'li a' element
 navItems.forEach(function (navItem) {
     navItem.addEventListener('click', function (event) {
-        // Prevent the default action of the click event
-        event.preventDefault();
+        console.log('funfou');
 
         // Remove the 'active' class from all 'li a' elements
         navItems.forEach(function (navItem) {
