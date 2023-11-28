@@ -1,6 +1,8 @@
 const navItems = document.querySelectorAll('.nav-bar li a');
 // Add an event listener to each 'li a' element
+console.log(navItems);
 navItems.forEach(function (navItem) {
+    console.log('funfou fora');
     navItem.addEventListener('click', function (event) {
         console.log('funfou');
 
