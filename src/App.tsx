@@ -1,21 +1,24 @@
 import "./App.css";
 import { FixedComponent } from "./components/FixedComponent";
 import { ScrollingContent } from "./components/ScrollingContent";
+import { useEffect, useState } from "react";
 
 function App() {
-  let language = "EN";
-  const storedLanguage = localStorage.getItem(
-    "preferredLanguagePortfolioChicao",
-  );
-  if (storedLanguage) {
-    language = storedLanguage;
-  }
+  const [language, setLanguage] = useState("EN");
+
+  // Use useEffect to set initial language based on user preference (if stored)
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("preferredLanguage");
+    if (storedLanguage) {
+      setLanguage(storedLanguage);
+    }
+  }, []);
 
   // Update language preference
   const handleLanguageChange = (newLanguage: string) => {
+    setLanguage(newLanguage);
     // Persist the user's language preference
-    localStorage.setItem("preferredLanguagePortfolioChicao", newLanguage);
-    window.location.reload();
+    localStorage.setItem("preferredLanguage", newLanguage);
   };
 
   const languageOptions = ["EN", "PT"];
@@ -24,9 +27,7 @@ function App() {
     <div className="container mx-auto px-10 py-20 lg:grid lg:grid-flow-col">
       <div className="laguage">
         {languageOptions.map((lang) => (
-          <button key={lang} onClick={() => handleLanguageChange(lang)}>
-            {lang}
-          </button>
+          <button key={lang} onClick={() => handleLanguageChange(lang)}>{lang}</button>
         ))}
       </div>
       <FixedComponent language={language} />
