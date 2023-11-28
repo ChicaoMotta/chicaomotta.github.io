@@ -1,4 +1,5 @@
 import React from "react";
+import NavComponent from "./NavComponent/NavComponent";
 
 interface FixedComponentProps {
   language: string;
@@ -14,35 +15,14 @@ export const FixedComponent: React.FC<FixedComponentProps> = ({ language }) => {
           Francisco Motta
         </h1>
         <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
-          Full-Stack Engineer
+        {language === "EN" ? "Full-Stack Engineer" : "Desenvolvedor Full-Stack"}
         </h2>
         <p className="mt-4">
-          I engineer exceptional, seamlessly integrated full-stack applications
-          that deploy and maintain with ease!
+        {language === "EN" ? "     I engineer exceptional, seamlessly integrated full-stack applications that deploy and maintain with ease!" 
+        : "Eu crio aplicações full-stack excepcionais, perfeitamente integradas, que são implantadas e mantidas com facilidade!"}
         </p>
 
-        <nav className="hidden lg:block">
-          <ul className="nav-bar mt-20">
-            <li>
-              <a href="#about" className="">
-                <span className="nav-decoration"></span>
-                <span className="nav-text">ABOUT</span>
-              </a>
-            </li>
-            <li>
-              <a href="#experience" className="">
-                <span className="nav-decoration"></span>
-                <span className="nav-text">EXPERIENCE</span>
-              </a>
-            </li>
-            <li>
-              <a href="#projects" className="">
-                <span className="nav-decoration"></span>
-                <span className="nav-text">PROJECTS</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+      <NavComponent></NavComponent>
       </div>
       <ul className="social">
         <li>

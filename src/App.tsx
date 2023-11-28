@@ -27,7 +27,7 @@ function App() {
     <div className="container mx-auto px-10 py-20 lg:grid lg:grid-flow-col">
       <div className="laguage">
         {languageOptions.map((lang) => (
-          <button key={lang} onClick={() => handleLanguageChange(lang)}>{lang}</button>
+          <button key={lang} type="button" onClick={() => handleLanguageChange(lang)}>{lang}</button>
         ))}
       </div>
       <FixedComponent language={language} />

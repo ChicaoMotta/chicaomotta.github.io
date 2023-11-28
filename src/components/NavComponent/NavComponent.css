@@ -1,0 +1,34 @@
+.nav-bar li a {
+    opacity: 40%;
+}
+
+.nav-bar li:hover * {
+    opacity: 1;
+}
+
+.nav-bar li a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-bar li a .nav-decoration {
+    height: 1px;
+    background-color: white;
+    width: 2rem;
+    display: inline-block;
+    margin-right: 1rem;
+    transition: all .15s ease-out;
+}
+
+.nav-bar li:hover a .nav-decoration {
+    width: 4rem;
+}
+
+.nav-bar li a.active {
+    opacity: 1;
+}
+
+.nav-bar li a.active .nav-decoration {
+    width: 4rem;
+}
