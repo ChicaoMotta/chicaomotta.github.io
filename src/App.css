@@ -2,3 +2,7 @@
   color: white;
   font-family: 'Roboto', sans-serif;
 }
+
+.language button {
+  margin-right: 1rem;
+}

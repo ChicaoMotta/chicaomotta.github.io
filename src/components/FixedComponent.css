@@ -1,0 +1,7 @@
+.socials img {
+    opacity: 50%;
+}
+
+.socials img:hover {
+    opacity: 1;
+}

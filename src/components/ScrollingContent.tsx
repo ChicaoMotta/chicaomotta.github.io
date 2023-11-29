@@ -9,7 +9,7 @@ export const ScrollingContent: React.FC<ScrollingContentProps> = ({
 }) => {
   console.log(language);
   return (
-    <div className=" lg:ml-auto lg:w-1/2">
+    <div className="">
       <div id="#about" className="">
         {language === "EN" ? "some content" : "alguma coisa"}
       </div>
