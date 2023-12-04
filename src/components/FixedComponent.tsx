@@ -12,7 +12,7 @@ export const FixedComponent: React.FC<FixedComponentProps> = ({ language }) => {
   return (
     <div className=" top-0 flex flex-col justify-between lg:sticky lg:h-[70vh] lg:px-20 lg:pt-28">
       <div className="header-content pt-6">
-        <h1 className="text-text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
+        <h1 className="text-text-4xl font-bold tracking-tight text-white sm:text-5xl">
           Francisco Motta
         </h1>
         <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
