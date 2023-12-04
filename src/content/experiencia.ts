@@ -1,6 +1,6 @@
 const experiencia = [
   {
-    date: "2019 - Atualmente",
+    date: "2019 - Atual",
     title: "Desenvolvedor Web Full-Stack",
     description: [
       "Sou um desenvolvedor web full-stack experiente com três anos de experiência em freelancing.",

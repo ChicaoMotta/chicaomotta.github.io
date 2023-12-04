@@ -18,7 +18,7 @@ export const ScrollingContent: React.FC<ScrollingContentProps> = ({
   }
   return (
     <div className="scrolling-section lg:pt-28">
-      <div id={links[0].toLocaleLowerCase()} className=" mb-10">
+      <div id={links[0].toLocaleLowerCase()} className=" mb-10 px-5">
         {language === "EN"
           ? [
               "I'm a Brazilian that was raised by Uncle Sam and now lives in Brazil again. You can trace my programming roots back to 2012 when I began studying computer science, but things became serious in 2019 when I started developing professionally. I have been a part of small WordPress projects, large full-stack apps, and even initiated my own startup in the drone industry.",
@@ -42,7 +42,7 @@ export const ScrollingContent: React.FC<ScrollingContentProps> = ({
             ))}
       </div>
       <div id={links[1].toLocaleLowerCase()} className=" flex flex-col">
-        <h2 className="mb-10">
+        <h2 className="mb-10 px-5 text-2xl font-bold md:mt-12">
           {language === "EN" ? "Experience" : "Experiencia"}
         </h2>
         {language === "EN"
@@ -51,18 +51,18 @@ export const ScrollingContent: React.FC<ScrollingContentProps> = ({
                 className="card group mb-5 rounded-md p-5 transition-all hover:bg-white/10 md:grid md:grid-cols-4"
                 key={index}
               >
-                <div className=" date md:col-span-1">{date}</div>
+                <div className=" date pr-4 font-bold md:col-span-1">{date}</div>
                 <div className=" xp-content md:col-span-3">
-                  <h3 className="mb-5">{title}</h3>
+                  <h3 className="mb-5 text-xl font-bold">{title}</h3>
                   {description.map((paragraph, index) => (
-                    <p className="mb-3" key={index}>
+                    <p className="mb-3 opacity-80" key={index}>
                       {paragraph}
                     </p>
                   ))}
                   <div className="tags flex flex-row flex-wrap gap-1 py-4">
                     {stacks.map((stack, index) => (
                       <div
-                        className="tag mb-1 rounded-full bg-slate-500  px-3 py-1"
+                        className="tag mb-1 rounded-full bg-[#0c5255]/30  px-3 py-1 text-[#00cece]"
                         key={index}
                       >
                         {stack}
@@ -77,18 +77,18 @@ export const ScrollingContent: React.FC<ScrollingContentProps> = ({
                 className="card group mb-5 rounded-md p-5 transition-all hover:bg-white/10 md:grid md:grid-cols-4"
                 key={index}
               >
-                <div className=" date md:col-span-1">{date}</div>
+                <div className=" date pr-4 font-bold md:col-span-1">{date}</div>
                 <div className=" xp-content md:col-span-3">
-                  <h3 className="mb-5">{title}</h3>
+                  <h3 className="mb-5 text-xl font-bold">{title}</h3>
                   {description.map((paragraph, index) => (
-                    <p className="mb-3" key={index}>
+                    <p className="mb-3 opacity-80" key={index}>
                       {paragraph}
                     </p>
                   ))}
                   <div className="tags flex flex-row flex-wrap gap-1 py-4">
                     {stacks.map((stack, index) => (
                       <div
-                        className="tag mb-1 rounded-full bg-slate-500  px-3 py-1"
+                        className="tag mb-1 rounded-full bg-[#0c5255]/30  px-3 py-1 text-[#00cece]"
                         key={index}
                       >
                         {stack}
@@ -100,7 +100,7 @@ export const ScrollingContent: React.FC<ScrollingContentProps> = ({
             ))}
       </div>
       <div id={links[2].toLocaleLowerCase()}>
-        <h2 className="mb-10">
+        <h2 className="mb-10 px-5 text-2xl font-bold">
           {language === "EN" ? "Notable projects" : "Projetos em destaque"}
         </h2>
 
@@ -113,14 +113,20 @@ export const ScrollingContent: React.FC<ScrollingContentProps> = ({
                 className=" col-span-1 w-full pr-4  "
               />
               <div className="content col-span-3">
-                <h3 className="mb-4 transition-all group-hover:text-red-400">
+                <h3 className="mb-4 text-xl font-bold transition-all group-hover:text-[#8efff7]">
                   {title}
                 </h3>
-                <p>{description}</p>
+                <p className="opacity-80">{description}</p>
               </div>
             </div>
           </a>
         ))}
+
+        <a href="" className="block text-lg font-bold hover:text-[#8efff7]">
+          {language === "EN"
+            ? "Checkout more projects in my LinkedIn page!   \u2192"
+            : "Confira todos os meus projetos no meu LinkedIn   \u2192"}
+        </a>
       </div>
     </div>
   );

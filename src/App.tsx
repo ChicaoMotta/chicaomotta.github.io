@@ -29,12 +29,12 @@ function App() {
 
   return (
     <>
-      <div className="language w-full px-10 pb-5 pt-10 md:fixed md:px-40 md:text-right">
+      <div className="language z-10 w-full bg-[#456351] px-10 pb-5 pt-10 md:fixed md:px-40 md:text-right">
         {languageOptions.map((lang) => (
           <button
             key={lang}
             onClick={() => handleLanguageChange(lang)}
-            className=" h-10 rounded border border-solid border-white bg-white/40 px-6 hover:bg-white hover:text-black"
+            className=" h-10 rounded border border-solid border-white bg-[#9fb6a6]/40 px-6 hover:bg-white hover:text-[#2a3b31]"
           >
             {lang}
           </button>
