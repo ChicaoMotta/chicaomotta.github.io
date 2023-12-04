@@ -29,7 +29,7 @@ function App() {
 
   return (
     <>
-      <div className="language z-10 w-full bg-[#456351] px-10 pb-5 pt-10 md:fixed md:px-40 md:text-right">
+      <div className="language z-30 w-full bg-[#456351] px-10 pb-5 pt-10 md:fixed md:px-40 md:text-right">
         {languageOptions.map((lang) => (
           <button
             key={lang}

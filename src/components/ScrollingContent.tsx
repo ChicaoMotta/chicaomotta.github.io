@@ -2,6 +2,7 @@ import React from "react";
 import xpEng from "../content/experience.ts";
 import xpPort from "../content/experiencia.ts";
 import projEng from "../content/projects.ts";
+import projPort from "../content/projetos.ts";
 
 interface ScrollingContentProps {
   language: string;
@@ -18,7 +19,10 @@ export const ScrollingContent: React.FC<ScrollingContentProps> = ({
   }
   return (
     <div className="scrolling-section lg:pt-28">
-      <div id={links[0].toLocaleLowerCase()} className=" mb-10 px-5">
+      <div id={links[0].toLocaleLowerCase()} className=" mb-10 md:px-5">
+        <h2 className="sticky top-0 z-20 mb-10 mt-10 bg-[#456351]/75 py-5  text-2xl font-bold  backdrop-blur md:mt-0">
+          {language === "EN" ? "About" : "Sobre"}
+        </h2>
         {language === "EN"
           ? [
               "I'm a Brazilian who was raised by Uncle Sam and now lives in Brazil again. You can trace my programming roots back to 2012 when I began studying computer science, but things became serious in 2019 when I started developing professionally. I have been a part of small WordPress projects, large full-stack apps, and even initiated my own startup in the drone industry.",
@@ -42,13 +46,13 @@ export const ScrollingContent: React.FC<ScrollingContentProps> = ({
             ))}
       </div>
       <div id={links[1].toLocaleLowerCase()} className=" flex flex-col">
-        <h2 className="mb-10 px-5 text-2xl font-bold md:mt-12">
+        <h2 className="sticky top-0 z-20 mb-10 bg-[#456351]/75 py-5 text-2xl  font-bold backdrop-blur  md:mt-0  md:p-5">
           {language === "EN" ? "Experience" : "Experiencia"}
         </h2>
         {language === "EN"
           ? xpEng.map(({ date, title, description, stacks }, index) => (
               <div
-                className="card group mb-5 rounded-md p-5 transition-all hover:bg-white/10 md:grid md:grid-cols-4"
+                className="card group mb-5 rounded-md transition-all hover:bg-white/10 md:grid md:grid-cols-4 md:p-5"
                 key={index}
               >
                 <div className=" date pr-4 font-bold md:col-span-1">{date}</div>
@@ -74,10 +78,12 @@ export const ScrollingContent: React.FC<ScrollingContentProps> = ({
             ))
           : xpPort.map(({ date, title, description, stacks }, index) => (
               <div
-                className="card group mb-5 rounded-md p-5 transition-all hover:bg-white/10 md:grid md:grid-cols-4"
+                className="card group mb-5 rounded-md transition-all hover:bg-white/10 md:grid md:grid-cols-4 md:p-5"
                 key={index}
               >
-                <div className=" date pr-4 font-bold md:col-span-1">{date}</div>
+                <div className=" date mb-3 pr-4 font-bold md:col-span-1 md:mb-0">
+                  {date}
+                </div>
                 <div className=" xp-content md:col-span-3">
                   <h3 className="mb-5 text-xl font-bold">{title}</h3>
                   {description.map((paragraph, index) => (
@@ -100,31 +106,55 @@ export const ScrollingContent: React.FC<ScrollingContentProps> = ({
             ))}
       </div>
       <div id={links[2].toLocaleLowerCase()}>
-        <h2 className="mb-10 px-5 text-2xl font-bold">
+        <h2 className="sticky top-0 z-20 mb-0 mt-10 bg-[#456351]/75 py-5 text-2xl  font-bold backdrop-blur  md:mb-10 md:mt-0 md:p-5">
           {language === "EN" ? "Notable projects" : "Projetos em destaque"}
         </h2>
 
-        {projEng.map(({ img, description, title, url }, index) => (
-          <a href={url} className=" block" key={index}>
-            <div className="card group mb-5 rounded-md p-5 transition-all hover:bg-white/10 md:grid md:grid-cols-4">
-              <img
-                src={img}
-                alt="bdmg showcase"
-                className=" col-span-1 w-full pr-4  "
-              />
-              <div className="content col-span-3">
-                <h3 className="mb-4 text-xl font-bold transition-all group-hover:text-[#8efff7]">
-                  {title}
-                </h3>
-                <p className="opacity-80">{description}</p>
-              </div>
-            </div>
-          </a>
-        ))}
+        <p className="mb-10 md:hidden">
+          {language === "EN"
+            ? "( Click the image to go to the project! )"
+            : "( Clique na imagem para ir ao projeto! )"}
+        </p>
+
+        {language === "EN"
+          ? projEng.map(({ img, description, title, url }, index) => (
+              <a href={url} className=" block" key={index}>
+                <div className="card group mb-10 rounded-md transition-all hover:bg-white/10 md:mb-5 md:grid md:grid-cols-4 md:p-5">
+                  <img
+                    src={img}
+                    alt="project showcase"
+                    className=" col-span-1 mx-auto mb-4 w-[200px] md:w-auto md:pr-4"
+                  />
+                  <div className="content col-span-3">
+                    <h3 className="mb-4 text-xl font-bold transition-all group-hover:text-[#8efff7]">
+                      {title}
+                    </h3>
+                    <p className="opacity-80">{description}</p>
+                  </div>
+                </div>
+              </a>
+            ))
+          : projPort.map(({ img, description, title, url }, index) => (
+              <a href={url} className=" block" key={index}>
+                <div className="card group mb-5 rounded-md transition-all hover:bg-white/10 md:grid md:grid-cols-4 md:p-5">
+                  <img
+                    src={img}
+                    alt="project showcase"
+                    className=" col-span-1 w-full pr-4  "
+                  />
+                  <div className="content col-span-3">
+                    <h3 className="mb-4 text-xl font-bold transition-all group-hover:text-[#8efff7]">
+                      {title}
+                    </h3>
+                    <p className="opacity-80">{description}</p>
+                  </div>
+                </div>
+              </a>
+            ))}
 
         <a href="" className="block text-lg font-bold hover:text-[#8efff7]">
           {language === "EN"
-            ? "Checkout more projects in my LinkedIn page!   \u2192"
+            ? "Checkout more projects on my LinkedIn page!   \u2192"
             : "Confira todos os meus projetos no meu LinkedIn   \u2192"}
         </a>
       </div>
