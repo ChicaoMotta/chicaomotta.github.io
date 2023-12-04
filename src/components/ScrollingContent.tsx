@@ -136,11 +136,11 @@ export const ScrollingContent: React.FC<ScrollingContentProps> = ({
             ))
           : projPort.map(({ img, description, title, url }, index) => (
               <a href={url} className=" block" key={index}>
-                <div className="card group mb-5 rounded-md transition-all hover:bg-white/10 md:grid md:grid-cols-4 md:p-5">
+                <div className="card group mb-10 rounded-md transition-all hover:bg-white/10 md:mb-5 md:grid md:grid-cols-4 md:p-5">
                   <img
                     src={img}
                     alt="project showcase"
-                    className=" col-span-1 w-full pr-4  "
+                    className=" col-span-1 mx-auto mb-4 w-[200px] md:w-auto md:pr-4"
                   />
                   <div className="content col-span-3">
                     <h3 className="mb-4 text-xl font-bold transition-all group-hover:text-[#8efff7]">
