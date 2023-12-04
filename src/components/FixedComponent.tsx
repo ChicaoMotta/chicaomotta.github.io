@@ -9,11 +9,9 @@ interface FixedComponentProps {
 }
 
 export const FixedComponent: React.FC<FixedComponentProps> = ({ language }) => {
-  console.log(language);
-
   return (
-    <div className=" top-0 flex flex-col justify-between lg:sticky lg:h-[80vh] lg:px-20">
-      <div className="header-content">
+    <div className=" top-0 flex flex-col justify-between lg:sticky lg:h-[70vh] lg:px-20 lg:pt-28">
+      <div className="header-content pt-6">
         <h1 className="text-text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
           Francisco Motta
         </h1>

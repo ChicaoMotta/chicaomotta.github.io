@@ -6,3 +6,7 @@
 .language button {
   margin-right: 1rem;
 }
+
+html {
+  scroll-behavior: smooth;
+}

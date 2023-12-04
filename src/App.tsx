@@ -29,7 +29,7 @@ function App() {
 
   return (
     <>
-      <div className="language w-full px-10 pt-10 md:px-40 md:text-right">
+      <div className="language w-full px-10 pb-5 pt-10 md:fixed md:px-40 md:text-right">
         {languageOptions.map((lang) => (
           <button
             key={lang}
@@ -40,7 +40,7 @@ function App() {
           </button>
         ))}
       </div>
-      <div className="container mx-auto px-10 py-10 lg:grid lg:grid-cols-2">
+      <div className=" container mx-auto px-10 pb-32 lg:grid lg:grid-cols-2">
         <FixedComponent language={language} />
         <ScrollingContent language={language} />
       </div>

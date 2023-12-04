@@ -1,4 +1,7 @@
 import React from "react";
+import xpEng from "../content/experience.ts";
+import xpPort from "../content/experiencia.ts";
+import projEng from "../content/projects.ts";
 
 interface ScrollingContentProps {
   language: string;
@@ -7,10 +10,15 @@ interface ScrollingContentProps {
 export const ScrollingContent: React.FC<ScrollingContentProps> = ({
   language,
 }) => {
-  console.log(language);
+  let links;
+  if (language === "EN") {
+    links = ["ABOUT", "EXPERIENCE", "PROJECTS"];
+  } else {
+    links = ["SOBRE", "EXPERIENCIA", "PROJETOS"];
+  }
   return (
-    <div className="">
-      <div id="#about" className="">
+    <div className="scrolling-section lg:pt-28">
+      <div id={links[0].toLocaleLowerCase()} className=" mb-10">
         {language === "EN"
           ? [
               "I'm a Brazilian that was raised by Uncle Sam and now lives in Brazil again. You can trace my programming roots back to 2012 when I began studying computer science, but things became serious in 2019 when I started developing professionally. I have been a part of small WordPress projects, large full-stack apps, and even initiated my own startup in the drone industry.",
@@ -33,8 +41,87 @@ export const ScrollingContent: React.FC<ScrollingContentProps> = ({
               </p>
             ))}
       </div>
-      <div>some content</div>
-      <div>some content</div>
+      <div id={links[1].toLocaleLowerCase()} className=" flex flex-col">
+        <h2 className="mb-10">
+          {language === "EN" ? "Experience" : "Experiencia"}
+        </h2>
+        {language === "EN"
+          ? xpEng.map(({ date, title, description, stacks }, index) => (
+              <div
+                className="card group mb-5 rounded-md p-5 transition-all hover:bg-white/10 md:grid md:grid-cols-4"
+                key={index}
+              >
+                <div className=" date md:col-span-1">{date}</div>
+                <div className=" xp-content md:col-span-3">
+                  <h3 className="mb-5">{title}</h3>
+                  {description.map((paragraph, index) => (
+                    <p className="mb-3" key={index}>
+                      {paragraph}
+                    </p>
+                  ))}
+                  <div className="tags flex flex-row flex-wrap gap-1 py-4">
+                    {stacks.map((stack, index) => (
+                      <div
+                        className="tag mb-1 rounded-full bg-slate-500  px-3 py-1"
+                        key={index}
+                      >
+                        {stack}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))
+          : xpPort.map(({ date, title, description, stacks }, index) => (
+              <div
+                className="card group mb-5 rounded-md p-5 transition-all hover:bg-white/10 md:grid md:grid-cols-4"
+                key={index}
+              >
+                <div className=" date md:col-span-1">{date}</div>
+                <div className=" xp-content md:col-span-3">
+                  <h3 className="mb-5">{title}</h3>
+                  {description.map((paragraph, index) => (
+                    <p className="mb-3" key={index}>
+                      {paragraph}
+                    </p>
+                  ))}
+                  <div className="tags flex flex-row flex-wrap gap-1 py-4">
+                    {stacks.map((stack, index) => (
+                      <div
+                        className="tag mb-1 rounded-full bg-slate-500  px-3 py-1"
+                        key={index}
+                      >
+                        {stack}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+      </div>
+      <div id={links[2].toLocaleLowerCase()}>
+        <h2 className="mb-10">
+          {language === "EN" ? "Notable projects" : "Projetos em destaque"}
+        </h2>
+
+        {projEng.map(({ img, description, title, url }, index) => (
+          <a href={url} className=" block" key={index}>
+            <div className="card group mb-5 rounded-md p-5 transition-all hover:bg-white/10 md:grid md:grid-cols-4">
+              <img
+                src={img}
+                alt="bdmg showcase"
+                className=" col-span-1 w-full pr-4  "
+              />
+              <div className="content col-span-3">
+                <h3 className="mb-4 transition-all group-hover:text-red-400">
+                  {title}
+                </h3>
+                <p>{description}</p>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
   );
 };
